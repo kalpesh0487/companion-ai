@@ -15,7 +15,7 @@ const ChatIdPage = async({params}:ChatIdPageProps) => {
 
     console.log("Fetching companion with ID:", params.chatId); // Log chat ID
 
-    const response = await fetch(`http://127.0.0.1:5000/api/companions/${params.chatId}`);
+    const response = await fetch(`${process.env.NEXT_PYTHON_BACKEND}/api/companions/${params.chatId}`);
 
     const companion = await response.json(); 
 

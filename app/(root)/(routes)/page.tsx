@@ -33,12 +33,12 @@ interface RootPageProps {
 
 const RootPage = async ({ searchParams }: RootPageProps) => {
   const queryParams = new URLSearchParams(searchParams).toString();
-  const response = await fetch(`http://127.0.0.1:5000/api/companions`);
+  const response = await fetch(`${process.env.NEXT_PYTHON_BACKEND}/api/companions`);
   const data = await response.json();
 
   console.log("data is : ",data);
 
-  const response1 = await fetch("http://127.0.0.1:5000/api/categories");
+  const response1 = await fetch(`${process.env.NEXT_PYTHON_BACKEND}/api/categories`);
   const catagory = await response1.json();
 
   return (
