@@ -64,9 +64,10 @@ const ChatClient = ({ companion }: Props) => {
     setMessages((current) => [...current, userMessage]);
     setIsLoading(true);
     try {
-      const axiosresponse = await axios.post(`${process.env.NEXT_PYTHON_BACKEND}/${companion.id}`, {
+      const axiosresponse = await axios.post(`https://python-companion-ai.onrender.com/api/chat/${companion.id}`, {
         prompt: input,
       });
+      console.log(JSON.stringify(axiosresponse));
       const sysmsg:ChatMessageProps ={
         role:"system",
         content:axiosresponse.data.response
