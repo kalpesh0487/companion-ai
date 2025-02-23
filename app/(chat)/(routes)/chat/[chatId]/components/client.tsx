@@ -64,7 +64,7 @@ const ChatClient = ({ companion }: Props) => {
     setMessages((current) => [...current, userMessage]);
     setIsLoading(true);
     try {
-      const axiosresponse = await axios.post(`${process.env.NEXT_PYTHON_BACKEND}/api/chat/${companion.id}`, {
+      const axiosresponse = await axios.post(`${process.env.NEXT_PYTHON_BACKEND}/${companion.id}`, {
         prompt: input,
       });
       const sysmsg:ChatMessageProps ={
